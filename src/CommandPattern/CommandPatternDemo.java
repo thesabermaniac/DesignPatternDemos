@@ -8,21 +8,18 @@ import java.util.ArrayList;
  */
 public class CommandPatternDemo {
     public static void main(String[] args) {
-        ArrayList<Command> commands = new ArrayList<>();
+        Executor executor = new Executor();
         Car car = new Car();
 
-        commands.add(new TurnRight(car));
-        commands.add(new Accelerate(car));
-        commands.add(new Accelerate(car));
-        commands.add(new Accelerate(car));
-        commands.add(new SlowDown(car));
-        commands.add(new SlowDown(car));
-        commands.add(new TurnLeft(car));
-        commands.add(new Accelerate(car));
-        commands.add(new Accelerate(car));
-
-        for(Command command:commands){
-            command.execute();
-        }
+        executor.addCommand(new TurnRight(car));
+        executor.addCommand(new Accelerate(car));
+        executor.addCommand(new Accelerate(car));
+        executor.addCommand(new Accelerate(car));
+        executor.addCommand(new SlowDown(car));
+        executor.addCommand(new SlowDown(car));
+        executor.addCommand(new TurnLeft(car));
+        executor.addCommand(new Accelerate(car));
+        executor.addCommand(new Accelerate(car));
+        executor.executeAll();
     }
 }
